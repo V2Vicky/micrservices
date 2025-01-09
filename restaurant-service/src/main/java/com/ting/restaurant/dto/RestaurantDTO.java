@@ -16,5 +16,5 @@ public class RestaurantDTO {
 	private String name;
 	private String location;
 	private Double rating;
-	private List<MenuDTO> menuItems;
+	private List<MenuItemDTO> menuItems;
 }

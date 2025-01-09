@@ -30,5 +30,5 @@ public class Restaurant {
     private Double rating;
 
 	@OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Menu> menuItems;
+	private List<MenuItem> menuItems;
 }

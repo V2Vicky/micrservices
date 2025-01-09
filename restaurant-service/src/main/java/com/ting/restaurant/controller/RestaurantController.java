@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ting.restaurant.dto.MenuItemDTO;
 import com.ting.restaurant.dto.RestaurantDTO;
 import com.ting.restaurant.service.RestaurantService;
 
@@ -30,6 +32,16 @@ public class RestaurantController {
 	@GetMapping("/{id}")
 	public RestaurantDTO getRestaurantById(@PathVariable Long id) {
 		return restaurantService.getRestaurantById(id);
+	}
+
+	@GetMapping("/find")
+	public RestaurantDTO getRestaurantByName(@RequestParam(required = false) String name) {
+			return restaurantService.getRestaurantByName(name);
+	}
+
+	@PutMapping("/{restaurantId}/menu")
+	public void updateMenu(@PathVariable Long restaurantId, @RequestBody List<MenuItemDTO> updatedMenu) {
+		restaurantService.updateMenu(restaurantId, updatedMenu);
 	}
 
 	@PostMapping
